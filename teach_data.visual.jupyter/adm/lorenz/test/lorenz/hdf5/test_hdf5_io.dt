@@ -1,0 +1,54 @@
+# Import function to be tested via doctest
+>>> from lorenz.hdf5 import save_hdf5
+>>> from lorenz.hdf5 import load_hdf5
+
+# Import of support modules/packages
+>>> import numpy as np
+>>> import shutil
+
+#----------------------------------------------------------------------------
+# I/O
+#----------------------------------------------------------------------------
+# Make temporary directory
+>>> shutil.rmtree('./__dummy__', ignore_errors=True)
+>>> shutil.os.mkdir('./__dummy__')
+
+# Create oracle (ref) data, save, load, and remove temporary directory
+>>> syspar_ref = {'sigma': 10.0, 'rho': 28, 'beta': 8.0/3.0}
+>>> simpar_ref = {'t_delta': 0.01, 'N': 10000}
+>>> xyz0_ref = {'x0': 0.1, 'y0': 0.1, 'z0': 0.1}
+>>> x_ref = np.random.normal(size=(simpar_ref['N']))
+>>> y_ref = np.random.normal(size=(simpar_ref['N']))
+>>> z_ref = np.random.normal(size=(simpar_ref['N']))
+>>> d_ref = np.random.normal(size=(simpar_ref['N']))
+>>> xyzd_ref = {'x': x_ref, 'y': y_ref, 'z': z_ref, 'd': d_ref}
+>>> del x_ref, y_ref, z_ref, d_ref
+>>> save_hdf5(syspar_ref, simpar_ref, xyz0_ref, xyzd_ref, '__dummy__')
+>>> syspar, simpar, xyz0, xyzd = load_hdf5('__dummy__')
+>>> shutil.rmtree('./__dummy__', ignore_errors=True)
+
+# Perform tests
+>>> np.allclose(syspar['sigma'], syspar_ref['sigma'])
+True
+>>> np.allclose(syspar['rho'], syspar_ref['rho'])
+True
+>>> np.allclose(syspar['beta'], syspar_ref['beta'])
+True
+>>> np.allclose(simpar['t_delta'], simpar_ref['t_delta'])
+True
+>>> np.allclose(simpar['N'], simpar_ref['N'])
+True
+>>> np.allclose(xyz0['x0'], xyz0_ref['x0'])
+True
+>>> np.allclose(xyz0['y0'], xyz0_ref['y0'])
+True
+>>> np.allclose(xyz0['z0'], xyz0_ref['z0'])
+True
+>>> np.allclose(xyzd['x'], xyzd_ref['x'])
+True
+>>> np.allclose(xyzd['y'], xyzd_ref['y'])
+True
+>>> np.allclose(xyzd['z'], xyzd_ref['z'])
+True
+>>> np.allclose(xyzd['d'], xyzd_ref['d'])
+True

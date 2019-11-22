@@ -1,0 +1,9 @@
+# Import of support modules/packages
+>>> import pep8
+
+
+#----------------------------------------------------------------------------
+# Check PEP8 conformity
+#----------------------------------------------------------------------------
+>>> pep8style = pep8.StyleGuide(quiet=False)
+>>> result = pep8style.check_files(['lorenz/plot.py'])

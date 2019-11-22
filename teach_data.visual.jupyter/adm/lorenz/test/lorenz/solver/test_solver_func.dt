@@ -1,0 +1,10 @@
+# Import function to be tested via doctest
+>>> from lorenz.solver import ode_solver
+
+# Import of support modules/packages
+>>> import numpy as np
+
+
+#----------------------------------------------------------------------------
+# Functionality
+#----------------------------------------------------------------------------

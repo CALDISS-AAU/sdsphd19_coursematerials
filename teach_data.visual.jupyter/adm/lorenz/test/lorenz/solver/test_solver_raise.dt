@@ -1,0 +1,218 @@
+# Import function to be tested via doctest
+>>> from lorenz.solver import ode_solver
+
+# Import of support modules/packages
+>>> import os
+>>> import numpy as np
+
+
+#----------------------------------------------------------------------------
+# syspar test
+#----------------------------------------------------------------------------
+>>> syspar = (0.1, 1, 0.1)
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be 3-pair dict.
+
+
+>>> syspar = [0.1, 1, 0.1]
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be 3-pair dict.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1, 'dummy': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be 3-pair dict.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'bete': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+ValueError: Input (...) has invalid key.
+
+
+>>> syspar = {'sigma': '0.1', 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be float or int.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': '1', 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be float or int.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': '0.1'}
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be float or int.
+
+
+#----------------------------------------------------------------------------
+# syspar test
+#----------------------------------------------------------------------------
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be 2-pair dict.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100, 'dummy': 0.5}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be 2-pair dict.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = (0.01, 100)
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be 2-pair dict.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = [0.01, 100]
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be 2-pair dict.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': '0.01', 'N': 100}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be float.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100.45}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be int.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': '100.xx'}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be int.
+
+
+
+#----------------------------------------------------------------------------
+# xyz0 test
+#----------------------------------------------------------------------------
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be 3-pair dict.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': 0.1, 'zz': 0.3}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be 3-pair dict.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = (0.1, 0.2, 0.3)
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be 3-pair dict.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = [0.1, 0.2, 0.3]
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be 3-pair dict.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'zz': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+ValueError: Input (...) has invalid key.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = {'x0': '0.0', 'y0': 0.1, 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be float or int.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = {'x0': 0.0, 'y0': '0.1', 'z0': 0.1}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be float or int.
+
+
+>>> syspar = {'sigma': 0.1, 'rho': 1, 'beta': 0.1}
+>>> simpar = {'t_delta': 0.01, 'N': 100}
+>>> xyz0 = {'x0': 0.0, 'y0': 0.1, 'z0': '0.1'}
+>>> ode_solver(syspar, simpar, xyz0)   # doctest: +ELLIPSIS
+Traceback (most recent call last):
+    ...
+TypeError: Input (...) must be float or int.
+
+
+
+
