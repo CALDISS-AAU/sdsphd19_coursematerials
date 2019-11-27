@@ -1,0 +1,13 @@
+c1 c2 c4 p11 p12
+c2 c1 c3 p21 p22
+c3 c2 c4 p31 p32 p33
+c4 c1 c3 p41 p42
+p11 c1
+p12 c1
+p21 c2
+p22 c2
+p31 c3
+p32 c3
+p33 c3
+p41 c4
+p42 c4

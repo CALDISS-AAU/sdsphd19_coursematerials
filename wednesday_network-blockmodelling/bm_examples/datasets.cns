@@ -1,0 +1,129 @@
+CeunetX
+ActorSet name="actorset"
+0	1	
+1	2	
+2	3	
+3	4	
+4	5	
+5	6	
+6	7	
+7	8	
+8	9	
+9	10	
+
+ActorSet name="actorset0"
+0	cw	
+1	cysr	
+2	jswe	
+3	ssr	
+4	scw	
+5	swra	
+6	sw	
+7	can	
+8	fr	
+9	cswj	
+10	amh	
+11	asw	
+12	bjsw	
+13	pw	
+14	ccq	
+15	jgsw	
+16	jsp	
+17	swg	
+18	swhc	
+19	ijsw	
+
+ActorSet name="actorset1"
+0	Ron_1	
+1	Tom_2	
+2	Frank_3	
+3	Boyd_4	
+4	Tim_5	
+5	John_6	
+6	Jeff_7	
+7	Jay_8	
+8	Sandy_9	
+9	Jerry_10	
+10	Darrin_11	
+11	Ben_12	
+12	Arnie_13	
+
+ActorSet name="actorset2"
+0	c1	
+1	c2	
+2	c3	
+3	c4	
+4	p11	
+5	p12	
+6	p21	
+7	p22	
+8	p31	
+9	p32	
+10	p33	
+11	p41	
+12	p42	
+
+Matrix name="BEfig1" cellFormat=F0 actorSet="actorset" directional=False valued=False selfties=False
+0	1	1	1	1	0	0	0	0	0
+1	0	1	1	0	1	1	1	0	0
+1	1	0	1	0	0	0	1	1	0
+1	1	1	0	1	0	0	0	0	1
+1	0	0	1	0	0	0	0	0	0
+0	1	0	0	0	0	0	0	0	0
+0	1	0	0	0	0	0	0	0	0
+0	1	1	0	0	0	0	0	0	0
+0	0	1	0	0	0	0	0	0	0
+0	0	0	1	0	0	0	0	0	0
+
+Matrix name="BakerCitationBinary" cellFormat=F0 actorSet="actorset0" directional=False valued=False selfties=True
+1	1	1	1	1	1	1	1	0	0	0	0	0	1	1	0	0	0	0	0
+1	1	0	1	1	1	1	1	1	0	0	0	0	1	1	0	0	0	0	0
+1	0	1	1	1	1	1	0	0	0	0	1	1	0	0	0	0	1	1	0
+1	1	1	1	1	1	1	0	0	1	0	1	0	0	0	0	1	1	0	0
+1	1	1	1	1	1	1	1	1	1	0	1	0	0	1	1	0	1	1	0
+1	1	1	1	1	1	1	0	0	0	0	1	0	0	0	0	0	0	0	0
+1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	0	1	1	1
+1	1	0	0	1	0	1	1	0	0	0	0	0	1	0	0	0	0	0	0
+0	1	0	0	1	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	1	1	0	1	0	0	1	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0
+0	0	1	1	1	1	1	0	0	0	0	1	0	1	0	0	0	0	0	0
+0	0	1	0	0	0	1	0	0	0	0	0	1	0	0	0	0	1	0	0
+1	1	0	0	0	0	1	1	0	0	0	1	0	1	0	0	0	0	0	0
+1	1	0	0	1	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+0	0	0	0	1	0	1	0	0	0	0	0	0	0	0	1	0	0	0	0
+0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0
+0	0	1	1	1	0	1	0	0	0	0	0	1	0	0	0	0	1	1	0
+0	0	1	0	1	0	1	0	0	0	0	0	0	0	0	0	0	1	1	0
+0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1
+
+Matrix name="LittleLeagueTI" cellFormat=F0 actorSet="actorset1" directional=True valued=False selfties=False
+0	0	1	1	1	0	0	0	0	0	0	0	0
+1	0	1	0	0	0	0	0	0	0	1	0	0
+1	0	0	1	0	0	0	0	0	0	1	0	0
+1	1	1	0	0	0	0	0	0	0	0	0	0
+1	0	1	1	0	0	0	0	0	0	0	0	0
+0	0	0	0	1	0	0	0	0	0	0	1	1
+0	1	0	0	0	0	0	1	1	0	0	0	0
+0	1	0	0	0	0	1	0	1	0	0	0	0
+0	1	0	0	0	0	1	1	0	0	0	0	0
+1	0	0	0	0	1	0	0	0	0	0	0	0
+1	1	0	0	0	0	0	0	0	1	0	0	0
+1	0	0	0	0	1	0	0	0	1	0	0	0
+0	0	0	0	1	1	0	0	0	0	0	0	0
+
+Matrix name="galtung" cellFormat=F0 actorSet="actorset2" directional=False valued=False selfties=False
+0	1	0	1	1	1	0	0	0	0	0	0	0
+1	0	1	0	0	0	1	1	0	0	0	0	0
+0	1	0	1	0	0	0	0	1	1	1	0	0
+1	0	1	0	0	0	0	0	0	0	0	1	1
+1	0	0	0	0	0	0	0	0	0	0	0	0
+1	0	0	0	0	0	0	0	0	0	0	0	0
+0	1	0	0	0	0	0	0	0	0	0	0	0
+0	1	0	0	0	0	0	0	0	0	0	0	0
+0	0	1	0	0	0	0	0	0	0	0	0	0
+0	0	1	0	0	0	0	0	0	0	0	0	0
+0	0	1	0	0	0	0	0	0	0	0	0	0
+0	0	0	1	0	0	0	0	0	0	0	0	0
+0	0	0	1	0	0	0	0	0	0	0	0	0
+

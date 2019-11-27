@@ -1,0 +1,13 @@
+Ron_1 Frank_3 Boyd_4 Tim_5
+Tom_2 Ron_1 Frank_3 Darrin_11
+Frank_3 Ron_1 Boyd_4 Darrin_11
+Boyd_4 Ron_1 Tom_2 Frank_3
+Tim_5 Ron_1 Frank_3 Boyd_4
+John_6 Tim_5 Ben_12 Arnie_13
+Jeff_7 Tom_2 Jay_8 Sandy_9
+Jay_8 Tom_2 Jeff_7 Sandy_9
+Sandy_9 Tom_2 Jeff_7 Jay_8
+Jerry_10 Ron_1 John_6
+Darrin_11 Ron_1 Tom_2 Jerry_10
+Ben_12 Ron_1 John_6 Jerry_10
+Arnie_13 Tim_5 John_6
