@@ -100,5 +100,8 @@ def calcDensityBlockimage(mat,blockdict):
           if ractor!=cactor:
             count=count+1
             sum=sum+mat[ractor,cactor]
-      dbi[rpos-1,cpos-1]=sum/count
+      if count>0:
+        dbi[rpos-1,cpos-1]=sum/count
+      else:
+        dbi[rpos-1,cpos-1]=0
   return(dbi)
