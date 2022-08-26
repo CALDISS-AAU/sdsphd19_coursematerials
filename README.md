@@ -1,5 +1,7 @@
 # sdsphd19_coursematerials
 
+Course materials for [SDSPhD19](https://github.com/CALDISS-AAU/sdsphd19).
+
 # Usefull Stuff
 
 ## Data Manipulation, coding & workflows
